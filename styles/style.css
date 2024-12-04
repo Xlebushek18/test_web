@@ -764,32 +764,34 @@ footer .container {
     }
 }
 
+/* Адаптация для планшетов */
 @media (max-width: 1024px) {
-    /* Меню */
-    .menu-list {
-        display: flex;
-        flex-wrap: wrap; /* Разрешаем перенос текста */
-        justify-content: center;
-        gap: 20px; /* Уменьшаем расстояние между пунктами */
+    /* Общий стиль для header */
+    header {
+        padding: 20px; /* Уменьшаем отступы */
     }
 
-    .menu-item a {
-        font-size: 12px; /* Уменьшаем размер шрифта */
-    }
-
-    /* Контейнер */
+    /* Изменение порядка блоков */
     .container {
-        padding: 0 15px; /* Уменьшаем боковые отступы */
+        display: flex;
+        flex-direction: row-reverse; /* Меняем порядок логотипа и блоков */
+        align-items: center;
+        justify-content: space-between;
     }
 
-    /* Контакты */
-    .contacts {
-        display: none; /* Скрываем блок с контактами */
+    /* Логотип */
+    .logo {
+        margin-right: 0;
+        margin-left: auto; /* Перемещаем логотип вправо */
     }
 
-    /* Toggle Menu (если используется кнопка) */
+    .logo img {
+        max-width: 120px; /* Уменьшаем размер логотипа */
+    }
+
+    /* Toggle Menu */
     .menu-toggle {
-        display: block;
+        display: block; /* Показываем Toggle Menu */
         font-size: 18px;
         background: none;
         border: none;
@@ -797,22 +799,54 @@ footer .container {
         cursor: pointer;
     }
 
+    /* Контакты */
+    .contacts {
+        display: flex;
+        gap: 10px;
+        order: 1; /* Ставим перед логотипом */
+    }
+
+    .contacts .phone {
+        position: static; /* Оставляем блок на месте */
+    }
+
+    .contacts .number {
+        display: none; /* Скрываем номер телефона */
+    }
+
+    /* Меню */
     .menu {
         display: none; /* Скрываем меню по умолчанию */
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         background-color: rgba(51, 51, 51, 0.9);
         position: absolute;
         top: 100%;
         right: 0;
         width: 100%;
-        padding: 10px 0;
+        padding: 10px;
     }
 
     .menu.active {
         display: flex; /* Показываем меню при нажатии Toggle Menu */
     }
+
+    .menu-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu-item a {
+        font-size: 14px; /* Уменьшаем шрифт */
+        color: white;
+        text-decoration: none;
+    }
 }
+
 /* Адаптация для телефонов до 480px */
 @media (max-width: 480px) {
     .container {
