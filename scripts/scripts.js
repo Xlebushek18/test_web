@@ -52,12 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
 const toggleButton = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
 
-// Управляем отображением меню
+// Управление меню
 toggleButton.addEventListener('click', () => {
     menu.classList.toggle('active');
 });
 
-// Убираем меню, если окно растянуто
+// Убираем меню, если ширина экрана больше 768px
 window.addEventListener('resize', () => {
     if (window.innerWidth > 768) {
         menu.classList.remove('active');
